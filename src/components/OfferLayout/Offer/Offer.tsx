@@ -27,32 +27,18 @@ const Offer = ({ offer }: { offer: OfferProps }): JSX.Element => {
     FilterContext
   ) as FilterContextType;
 
-  const addLangCategory = (e: React.MouseEvent<HTMLSpanElement>) => {
-    const lang = e.currentTarget.innerText;
-    if (!filters.languages.includes(lang)) {
-      setFilters({ ...filters, languages: [...filters.languages, lang] });
+  const addFilter = (e: React.MouseEvent<HTMLSpanElement>) => {
+    const filter = e.currentTarget.innerHTML;
+    if (!filters.includes(filter)) {
+      setFilters([...filters, filter]);
     }
   };
-  const addToolCategory = (e: React.MouseEvent<HTMLSpanElement>) => {
-    const tool = e.currentTarget.innerText;
-    if (!filters.tools.includes(tool)) {
-      setFilters({ ...filters, tools: [...filters.tools, tool] });
-    }
-  };
-  const addRoleCategory = () => {
-    if (!filters.role) {
-      setFilters({ ...filters, role: offer.role });
-    }
-  };
-  const addLevelCategory = () => {
-    if (!filters.level) {
-      setFilters({ ...filters, level: offer.level });
-    }
-  };
+
   return (
     <div className={styles.container}>
+      <img className={styles.mobileImg} src={offer.logo} />
       <div className={styles.generalInfo}>
-        <img src={image} />
+        <img className={styles.desktopImg} src={offer.logo} />
 
         <div className={styles.offerInfo}>
           <div className={styles.companyInfo}>
@@ -72,30 +58,22 @@ const Offer = ({ offer }: { offer: OfferProps }): JSX.Element => {
       </div>
 
       <div className={styles.categories}>
+        <span onClick={addFilter} className={styles.category}>
+          {offer.role}
+        </span>
+        <span onClick={addFilter} className={styles.category}>
+          {offer.level}
+        </span>
         {offer.languages.map((language, index) => (
-          <span
-            onClick={addLangCategory}
-            className={styles.category}
-            key={index}
-          >
+          <span onClick={addFilter} className={styles.category} key={index}>
             {language}
           </span>
         ))}
         {offer.tools.map((tool, index) => (
-          <span
-            onClick={addToolCategory}
-            className={styles.category}
-            key={index}
-          >
+          <span onClick={addFilter} className={styles.category} key={index}>
             {tool}
           </span>
         ))}
-        <span onClick={addRoleCategory} className={styles.category}>
-          {offer.role}
-        </span>
-        <span onClick={addLevelCategory} className={styles.category}>
-          {offer.level}
-        </span>
       </div>
     </div>
   );

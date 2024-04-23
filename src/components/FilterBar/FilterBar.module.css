@@ -65,3 +65,10 @@
 .deleteBtn:hover{
     background: hsl(180, 14%, 20%);
 }
+
+@media (max-width: 640px){
+    .container{
+        position: relative;
+        width: 80%;
+    }
+}

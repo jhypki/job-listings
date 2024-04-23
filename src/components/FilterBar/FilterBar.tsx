@@ -7,41 +7,23 @@ const FilterBar = () => {
     FilterContext
   ) as FilterContextType;
   const handleClear = () => {
-    setFilters({
-      role: "",
-      level: "",
-      languages: [],
-      tools: [],
-    });
+    setFilters([]);
+  };
+  const handleDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const filter = e.currentTarget.previousSibling?.textContent;
+    if (filter) {
+      setFilters(filters.filter((f) => f !== filter));
+    }
   };
   return (
     <div className={styles.container}>
       <div className={styles.filters}>
-        {filters.role.length > 0 && (
-          <span className={styles.category}>
-            {filters.role}
-            <button className={styles.deleteBtn}>X</button>
-          </span>
-        )}
-
-        {filters.level.length > 0 && (
-          <span className={styles.category}>
-            {filters.level}
-            <button className={styles.deleteBtn}>X</button>
-          </span>
-        )}
-
-        {filters.languages.map((lang, i) => (
+        {filters.map((filter, i) => (
           <span className={styles.category} key={i}>
-            {lang}
-            <button className={styles.deleteBtn}>X</button>
-          </span>
-        ))}
-
-        {filters.tools.map((tool, i) => (
-          <span className={styles.category} key={i}>
-            {tool}
-            <button className={styles.deleteBtn}>X</button>
+            {filter}
+            <button onClick={handleDelete} className={styles.deleteBtn}>
+              X
+            </button>
           </span>
         ))}
       </div>
