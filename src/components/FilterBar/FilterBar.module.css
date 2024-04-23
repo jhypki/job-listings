@@ -1,0 +1,67 @@
+.container{
+    width: 80%;
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px;
+    background-color: white;
+    box-shadow: 0px 0px 53px -33px hsl(180, 29%, 50%);
+    top: 70%;
+    padding: 0.755rem 2rem;
+    border-radius: 10px;
+
+}
+
+.filters{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.category{
+    
+    background-color: hsl(180, 31%, 95%);
+    color: hsl(180, 29%, 50%);
+    font-weight : 700;
+    border-radius: 5px;
+    transition: all 0.2s;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0.5rem;
+}
+
+.clear{
+    color: hsl(180, 29%, 50%);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+}
+
+.clear:hover{
+    border-bottom: 2px solid hsl(180, 29%, 50%);
+}
+
+.filter{
+    display: flex;
+    align-items: center;
+}
+.deleteBtn{
+    background: hsl(180, 29%, 50%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: all 0.2s;
+}
+
+.deleteBtn:hover{
+    background: hsl(180, 14%, 20%);
+}
