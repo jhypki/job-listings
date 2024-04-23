@@ -18,6 +18,6 @@ const FilterContextProvider = ({ children }: { children: React.ReactNode }) => {
 };
 export const FilterContext = React.createContext<FilterContextType>({
   filters: [],
-  setFilters: (filters: any) => void 0,
+  setFilters: () => void 0,
 });
 export default FilterContextProvider;

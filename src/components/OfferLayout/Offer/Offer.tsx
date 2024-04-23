@@ -1,5 +1,4 @@
 import styles from "./Offer.module.css";
-import image from "../../../images/myhome.svg";
 import React, { useContext } from "react";
 import {
   FilterContext,
