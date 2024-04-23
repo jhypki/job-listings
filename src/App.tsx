@@ -1,6 +1,5 @@
 import { useContext, useEffect } from "react";
 import { FindOffers } from "./api/FindOffers";
-import data from "./data.json";
 import { useState } from "react";
 import OfferLayout from "./components/OfferLayout/OfferLayout";
 import Header from "./components/Header/Header";
